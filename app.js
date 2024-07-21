@@ -1,6 +1,10 @@
-const users = require('./users')
+let users = [
+    {id : 1  , name : 'yasmeen' ,hoppy : 'reading'},
+    {id : 2  , name : 'ahmed'   ,hoppy : 'swimming'}
+] ;
 
-let lastId = users.length > 0 ? Math.max(...users.map(user => user.id))  : 1; ;
+
+let lastId = users.length > 0 ? Math.max(...users.map(user => user.id)) +1 : 1; ;
 
 const getUsers = ()=>{
     return users
@@ -11,7 +15,7 @@ const getUser = (id)=>{
     return user ;
 };
 
-const addUsers = (name , hoppy) => {
+const addUser = (name , hoppy) => {
     const newUser = {id : lastId++ , name  , hoppy} ;
     users.push(newUser) ;
     return newUser
@@ -33,7 +37,7 @@ const deleteUser = (id)=>{
 module.exports = {
     getUsers , 
     getUser ,
-    addUsers ,
+    addUser ,
     updateUser ,
     deleteUser
 }
